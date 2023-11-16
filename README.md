@@ -26,8 +26,8 @@ how the lifetime career can be impacted by the genre of the actors
 
 [Detail any additional datasets used, their size, format, and relevance to the primary data.]
 
-- Dataset 1: tvtropes
-- Dataset 2: bechdel.csv
+- Dataset 1: tvtropes (<https://tvtropes.org/pmwiki/pmwiki.php/Main/UnisexTropes>)
+- Dataset 2: bechdel.csv (<https://www.kaggle.com/datasets/treelunar/bechdel-test-movies-as-of-feb-28-2023>)
 - ...
 
 ## Methods
@@ -56,6 +56,15 @@ For the part of the study of the gender distribution based on various characteri
 - Selection of the countries for the assesment of the culture impact on the gender repartition. In order to observe the impact of the culture over the gender distribution, it was decided to take countries from different continents to ensure the difference of cultures. The countries with the most amount of movies per continent were selected: United-States (North america), United Kingdom (Europe), India (Asia), Mexico(Center America) and Argentina(South America). No country from Africa was selected because of a lack of data.
 - Definition of a range of the years for which enough movies have been released
 - Definition of a range of age for which the impact of the age will be studied over the actor population 
+
+=======
+- Remove all instances of from the `character.metadata.tsv` that are missing the gender of the actor/caracter
+
+- Added a caracter `Role` attribute to the `character.metadata.tsv` that is either Main Character (MC) or Supporting Character (SC). This was done following a naive approach, looking wether the name or surname of a character is present in the plot summary of the movie in the `plot_summaries.txt` file. If the name or surname of the character is present in the plot summary, then the character is considered a Main Character, otherwise it is considered a Supporting Character.
+
+- Parsed the json-like structures given in the `Language`, `Country` and `Genre` attributes of the `movie.metadata.tsv` file. The parsing transformed the json structures into a list of strings, where each string is a language, country or genre of the movie.
+
+- Reduced the number of genres from 363 down to 78, by mapping each genre to a set of more general genres (e.g. `Action/Adventure` -> `Action` and `Adventure`). The mapping was done manually, by looking at the genres and trying to find the most general genres that could be used to describe the movie. Note that it was attempted to perform the mapping through a hierarchical agglomerative clustering, but the results were not satisfactory.
 
 
 ### Analysis Techniques
