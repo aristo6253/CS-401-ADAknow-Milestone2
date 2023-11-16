@@ -27,6 +27,10 @@
 
 [Describe the EDA. This might include initial data visualization, identification of patterns, anomalies, or preliminary insights about gender disparities in your datasets.]
 
+#### Univariate Analysis
+
+#### Bivariate Analysis (focused on gender)
+
 ### Data Preprocessing
 
 [Outline the preprocessing steps needed for your datasets. This could involve cleaning data, handling missing values, normalizing or transforming data, feature selection, etc.]
